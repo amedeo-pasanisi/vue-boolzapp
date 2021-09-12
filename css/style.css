@@ -16,7 +16,7 @@ body {
 }
 
 img {
-    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 
@@ -109,12 +109,42 @@ img {
 
         .contact {
             display: flex;
-            padding: 10px;
+            position: relative;
+            height: 70px;
+            padding: 9px;
             border-top: 2px solid #f8f8f8;
+        }
+
+        .contact:hover {
+            background-color: #f8f8f8;
+        }
+
+        .contact:active {
+            background-color: #e9e9e9;
         }
 
         .contact .text {
             margin-left: 20px;
+            height: 100%;
+            width: calc(100% - 70px);
+        }
+
+        .contact .preview {
+            width: 60%;
+            margin-top: 5px;
+            font-size: 12px;
+            color: rgb(165, 165, 165);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .contact .date {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 10px;
+            color: rgb(165, 165, 165);
         }
     /* fine sezione CONTACTS-CONTAINER */
 /* FINE PARTE SINISTRA */
@@ -145,7 +175,7 @@ img {
                 margin-left: 20px;
             }
 
-            .contact-bar-sx .text .acces {
+            .contact-bar-sx .text .access {
                 margin-top: 5px;
                 color: rgb(165, 165, 165);
                 font-size: 11px;
@@ -161,13 +191,36 @@ img {
                 margin: 0 10px;
             }
     /* fine sezione CONTACT-BAR */
+
     /* inizio sezione CHAT-CONTAINER */
     .chat-container {
+        display: flex;
+        flex-direction: column;
         height: calc(100% - 140px);
         background-image: url(../img/mine.jpg);
         overflow-y: scroll;
+        padding: 20px 30px 0 30px;
+    }
+
+    .message-container {
+        max-width: 300px;
+        margin-top: 10px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    .message-container.sent{
+        align-self: flex-end;
+        background-color: rgb(165, 233, 165);
+    }
+
+    .message-container.received {
+        align-self: flex-start;
+        background-color: white;
     }
     /* fine sezione CHAT-CONTAINER */
+
     /* inizio sezione TYPE-BAR-CONTAINER */
     .type-bar-container {
         display: flex;
@@ -190,6 +243,7 @@ img {
         }
 
         .type-bar-container i {
+            font-size: 20px;
             color: gray;
         }
     /* inizio sezione TYPE-BAR-CONTAINER */

@@ -37,9 +37,13 @@
                     <input type="text" name="" class="searchbar" placeholder="               Cerca o inizia una nuova chat">
                 </section>
                 <ul class="contacts-container">
-                    <li v-for="contact in contacts" class="contact">
+                    <li v-for="(contact,index) in contacts" class="contact">
                         <img :src="createImg (contact)" alt="">
-                        <span class="text">{{ contact.name }}</span>
+                        <div class="text">
+                            <span class="name">{{ contact.name }}</span>
+                            <div class="preview">{{ contact.messages[contact.messages.length - 1].message }}</div>
+                            <div class="date">{{ contact.messages[contact.messages.length - 1].date }}</div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -51,8 +55,8 @@
                             <div class="name">
                                 sgdfsdzgf
                             </div>
-                            <div class="acces">
-                                Ultimo accesso oggi alle
+                            <div class="access">
+                                Ultimo accesso oggi alle 
                             </div>
                         </div>
                     </div>
@@ -62,7 +66,14 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </section>
-                <section class="chat-container"></section>
+                <section class="chat-container">
+                    <div v-for="element in contacts[0].messages" v-if="element.status == 'sent'" :class="'sent'" class="message-container">
+                        {{ element.message }}
+                    </div>
+                    <div v-else :class="'received'" class="message-container">
+                        {{ element.message }}
+                    </div>
+                </section>
                 <section class="type-bar-container">
                     <i class="far fa-smile-wink"></i>
                     <input type="text" class="type-bar" placeholder="Scrivi un messaggio">
