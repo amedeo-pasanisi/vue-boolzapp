@@ -36,17 +36,38 @@
                 <section class="searchbar-container">
                     <input type="text" name="" class="searchbar" placeholder="               Cerca o inizia una nuova chat">
                 </section>
-                <section class="contacts-container">
-                    <div v-for="contact in contacts" class="contact">
+                <ul class="contacts-container">
+                    <li v-for="contact in contacts" class="contact">
                         <img :src="createImg (contact)" alt="">
-                        <span class="name">{{ contact.name }}</span>
-                    </div>
-                </section>
+                        <span class="text">{{ contact.name }}</span>
+                    </li>
+                </ul>
             </div>
             <div class="column-dx">
-                <section class="contact-bar"></section>
+                <section class="contact-bar">
+                    <div class="contact-bar-sx">
+                        <img src="img/avatar_1.jpg" alt="">
+                        <div class="text">
+                            <div class="name">
+                                sgdfsdzgf
+                            </div>
+                            <div class="acces">
+                                Ultimo accesso oggi alle
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-bar-dx">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </section>
                 <section class="chat-container"></section>
-                <section class="type-bar"></section>
+                <section class="type-bar-container">
+                    <i class="far fa-smile-wink"></i>
+                    <input type="text" class="type-bar" placeholder="Scrivi un messaggio">
+                    <i class="fas fa-microphone"></i>
+                </section>
             </div>
         </div>
     </div>

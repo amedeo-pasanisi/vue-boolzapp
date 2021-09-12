@@ -4,10 +4,6 @@ const app = new Vue (
     {
         el: "#root",
         data: {
-            // name: 'Michele',
-            // avatar: '_1',
-            // visible: true,
-            // messages: [
             contacts: [
                 {
                     name: 'Michele',
