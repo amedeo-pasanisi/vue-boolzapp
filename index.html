@@ -37,8 +37,8 @@
                     <input type="text" name="" class="searchbar" placeholder="               Cerca o inizia una nuova chat">
                 </section>
                 <ul class="contacts-container">
-                    <li v-for="(contact,index) in contacts" class="contact">
-                        <img :src="createImg (contact)" alt="">
+                    <li v-for="(contact,index) in contacts" @click="toggleVisibility(contact)" class="contact">
+                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                         <div class="text">
                             <span class="name">{{ contact.name }}</span>
                             <div class="preview">{{ contact.messages[contact.messages.length - 1].message }}</div>
@@ -49,14 +49,14 @@
             </div>
             <div class="column-dx">
                 <section class="contact-bar">
-                    <div class="contact-bar-sx">
-                        <img src="img/avatar_1.jpg" alt="">
+                    <div v-for="(contact,index) in contacts" v-if="contact.visible == true" class="contact-bar-sx">
+                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                         <div class="text">
                             <div class="name">
-                                sgdfsdzgf
+                                {{contact.name}}
                             </div>
                             <div class="access">
-                                Ultimo accesso oggi alle 
+                                Ultimo accesso oggi alle {{contact.messages[contact.messages.length - 1].date}}
                             </div>
                         </div>
                     </div>
@@ -67,11 +67,15 @@
                     </div>
                 </section>
                 <section class="chat-container">
-                    <div v-for="element in contacts[0].messages" v-if="element.status == 'sent'" :class="'sent'" class="message-container">
-                        {{ element.message }}
-                    </div>
-                    <div v-else :class="'received'" class="message-container">
-                        {{ element.message }}
+                    <div v-if="contact.visible == true" v-for="(contact,index) in contacts" class="visible-chat">
+                        <div v-for="element in contact.messages" :class="(element.status == 'sent')?'sent':'received'" class="message-container">
+                            <div class="message">
+                                {{element.message}}
+                            </div>
+                            <div class="date">
+                                {{element.date}}
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <section class="type-bar-container">

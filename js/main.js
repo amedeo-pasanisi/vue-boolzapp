@@ -3,6 +3,7 @@ Vue.config.devtools = true;
 const app = new Vue (
     {
         el: "#root",
+        
         data: {
             contacts: [
                 {
@@ -88,15 +89,24 @@ const app = new Vue (
                         }
                     ],
                 },
-            ],
-            // immagine: this.createImg(contact)
-            // immagine: "img/avatar" + contacts[index].avatar + ".jpg"
-            // immagine: "img/avatar" + contact.avatar + ".jpg"
+            ]
         },
+
+        created() {
+            this.clearVisibility();
+            this.contacts[0].visible = true;
+        },
+
         methods: {
-            createImg (contact) {
-                return "img/avatar" + contact.avatar + ".jpg"
-            }
+            clearVisibility() {
+                for (i=0; i<this.contacts.length; i++) {
+                    this.contacts[i].visible = false;
+                }
+            },
+            toggleVisibility(contact) {
+                this.clearVisibility();
+                contact.visible = !contact.visible;
+            },
         }
     }
 )

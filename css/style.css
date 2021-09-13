@@ -166,7 +166,7 @@ img {
         border-left: 1px solid lightgray;
     }
 
-        .contact-bar-sx {
+        .contact-bar-sx, .contact-bar-dx {
             display: flex;
             align-items: center;
         }
@@ -181,11 +181,6 @@ img {
                 font-size: 11px;
             }
 
-        .contact-bar-dx {
-            display: flex;
-            align-items: center;
-        }
-
             .contact-bar-dx i {
                 color: rgb(165, 165, 165);
                 margin: 0 10px;
@@ -194,25 +189,37 @@ img {
 
     /* inizio sezione CHAT-CONTAINER */
     .chat-container {
-        display: flex;
-        flex-direction: column;
         height: calc(100% - 140px);
         background-image: url(../img/mine.jpg);
         overflow-y: scroll;
         padding: 20px 30px 0 30px;
     }
 
+    .visible-chat {
+        display: flex;
+        flex-direction: column;
+    }
+
     .message-container {
-        max-width: 300px;
+        position: relative;
+        min-width: 300px;
         margin-top: 10px;
-        padding: 10px 20px;
+        padding: 10px 10px 20px;
         border-radius: 10px;
         font-size: 14px;
     }
 
+    .message-container .date {
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        font-size: 11px;
+        color: gray;
+    }
+
     .message-container.sent{
         align-self: flex-end;
-        background-color: rgb(165, 233, 165);
+        background-color: rgb(186, 228, 186);
     }
 
     .message-container.received {
