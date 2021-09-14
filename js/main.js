@@ -100,13 +100,22 @@ const app = new Vue (
             },
             sendNewMessage() {
                 let activeContact = this.contacts[this.indexActiveContact];
+                let newMessageDate = dayjs().format("DD/MM/YYYY hh:mm:ss");
                 if (this.newMessage!= "")
                 activeContact.messages.push({
-                    date: '10/01/2020 15:50:00',
+                    date: newMessageDate,
                     message: this.newMessage,
                     status: 'sent'
                 });
                 this.newMessage = "";
+
+                setTimeout(() => {
+                    activeContact.messages.push({
+                        date: newMessageDate,
+                        message: "ok",
+                        status: 'received'
+                    });
+                }, 1000);
             },
         }
     }
