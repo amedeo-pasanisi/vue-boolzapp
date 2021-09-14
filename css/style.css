@@ -208,24 +208,16 @@ img {
         padding: 20px 30px;
     }
 
-    .visible-chat {
-    }
-
     .message-container {
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         min-width: 300px;
         margin-top: 10px;
         padding: 10px 10px 20px;
         border-radius: 10px;
         font-size: 14px;
-    }
-
-    .message-container .date {
-        position: absolute;
-        bottom: 5px;
-        right: 10px;
-        font-size: 11px;
-        color: gray;
     }
 
     .message-container.sent{
@@ -237,6 +229,43 @@ img {
         align-self: flex-start;
         background-color: white;
     }
+
+        .message-container .date {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 11px;
+            color: gray;
+        }
+
+        .message-container i {
+            display: none;
+        }
+
+        .message-container:hover i {
+            display: block;
+            color: gray;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .active-menu {
+            display: inline-block;
+            position: absolute;
+            top: 30px;
+            right: 0;
+            padding: 20px;
+            border-radius: 2px;
+            background-color: white;
+            box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.479);
+            z-index: 1;
+        }
+
+        .active-menu div:last-child {
+            margin-top: 10px;
+        }
     /* fine sezione CHAT-CONTAINER */
 
     /* inizio sezione TYPE-BAR-CONTAINER */

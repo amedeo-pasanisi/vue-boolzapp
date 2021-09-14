@@ -93,7 +93,8 @@ const app = new Vue (
             indexActiveContact: 0,
             newMessage: '',
             search: '',
-            // splittedSearchArray: []
+            activeMenu: false,
+            menuIndex: null
         },
         methods: {
             setActiveContactIndex(index) {
@@ -117,6 +118,19 @@ const app = new Vue (
                         status: 'received'
                     });
                 }, 1000);
+            },
+            toggle() {
+                this.activeMenu = !this.activeMenu;
+            },
+            testFunction(index) {
+                if (this.menuIndex != index) {
+                    this.activeMenu = false;
+                    this.toggle();
+                    this.menuIndex = index;
+                } else {
+                    this.toggle();
+                    this.menuIndex = index;
+                }
             }
         }
     }

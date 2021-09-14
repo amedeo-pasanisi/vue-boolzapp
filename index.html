@@ -70,12 +70,20 @@
                     </div>
                 </section>
                 <section class="chat-container">
-                    <div  v-for="(message,index) in contacts[indexActiveContact].messages" :class="(message.status == 'sent')?'sent':'received'" class="message-container">
+                    <div
+                    class="message-container"
+                    v-for="(message,index) in contacts[indexActiveContact].messages" 
+                    :class="(message.status == 'sent')?'sent':'received'">
                         <div class="message">
                             {{message.message}}
                         </div>
                         <div class="date">  
                             {{message.date}}
+                        </div>
+                        <i @click="testFunction(index)" class="fas fa-chevron-down"></i>
+                        <div :class="(activeMenu && menuIndex == index) ? 'active-menu' : 'menu'">
+                            <div>Message Info</div>
+                            <div>Delete</div>
                         </div>
                     </div>
                 </section>
