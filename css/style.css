@@ -189,6 +189,8 @@ img {
 
     /* inizio sezione CHAT-CONTAINER */
     .chat-container {
+        display: flex;
+        flex-direction: column;
         height: calc(100% - 140px);
         background-image: url(../img/mine.jpg);
         overflow-y: scroll;
@@ -196,8 +198,6 @@ img {
     }
 
     .visible-chat {
-        display: flex;
-        flex-direction: column;
     }
 
     .message-container {

@@ -89,23 +89,14 @@ const app = new Vue (
                         }
                     ],
                 },
-            ]
-        },
-
-        created() {
-            this.clearVisibility();
-            this.contacts[0].visible = true;
+            ],
+            indexActiveContact: 0
         },
 
         methods: {
-            clearVisibility() {
-                for (i=0; i<this.contacts.length; i++) {
-                    this.contacts[i].visible = false;
-                }
-            },
-            toggleVisibility(contact) {
-                this.clearVisibility();
-                contact.visible = !contact.visible;
+            setActiveContactIndex(index) {
+                this.indexActiveContact = index;
+                console.log(this.indexActiveContact);
             },
         }
     }
