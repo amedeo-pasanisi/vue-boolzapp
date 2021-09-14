@@ -91,14 +91,16 @@ const app = new Vue (
                 },
             ],
             indexActiveContact: 0,
-            newMessage: ''
+            newMessage: '',
+            search: '',
+            // splittedSearchArray: []
         },
         methods: {
             setActiveContactIndex(index) {
                 this.indexActiveContact = index;
                 console.log(this.indexActiveContact);
             },
-            sendNewMessage() {
+            sendNewMessages() {
                 let activeContact = this.contacts[this.indexActiveContact];
                 let newMessageDate = dayjs().format("DD/MM/YYYY hh:mm:ss");
                 if (this.newMessage!= "")
@@ -108,7 +110,6 @@ const app = new Vue (
                     status: 'sent'
                 });
                 this.newMessage = "";
-
                 setTimeout(() => {
                     activeContact.messages.push({
                         date: newMessageDate,
@@ -116,7 +117,7 @@ const app = new Vue (
                         status: 'received'
                     });
                 }, 1000);
-            },
+            }
         }
     }
 )

@@ -36,10 +36,11 @@
                     </div>
                 </section>
                 <section class="searchbar-container">
-                    <input type="text" name="" class="searchbar" placeholder="               Cerca o inizia una nuova chat">
+                    <label for="searchbar"><i class="fas fa-search"></i></label>
+                    <input type="text" v-model="search" class="searchbar" placeholder="Cerca o inizia una nuova chat">
                 </section>
                 <ul class="contacts-container">
-                    <li v-for="(contact,index) in contacts" @click="setActiveContactIndex(index)" class="contact">
+                    <li v-for="(contact,index) in contacts" v-if="(contact.name.indexOf(search) > -1)? true : false" @click="setActiveContactIndex(index)" class="contact">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                         <div class="text">
                             <span class="name">{{ contact.name }}</span>
@@ -80,7 +81,7 @@
                 </section>
                 <section class="type-bar-container">
                     <i class="far fa-smile-wink"></i>
-                    <input type="text" class="type-bar" v-model="newMessage" @keyup.enter="sendNewMessage" placeholder="Scrivi un messaggio">
+                    <input type="text" class="type-bar" v-model="newMessage" @keyup.enter="sendNewMessages" placeholder="Scrivi un messaggio">
                     <i class="fas fa-microphone"></i>
                 </section>
             </div>
