@@ -67,18 +67,18 @@
                     </div>
                 </section>
                 <section class="chat-container">
-                    <div  v-for="message in contacts[indexActiveContact].messages" :class="(message.status == 'sent')?'sent':'received'" class="message-container">
+                    <div  v-for="(message,index) in contacts[indexActiveContact].messages" :class="(message.status == 'sent')?'sent':'received'" class="message-container">
                         <div class="message">
                             {{message.message}}
                         </div>
-                        <div class="date">
+                        <div class="date">  
                             {{message.date}}
                         </div>
                     </div>
                 </section>
                 <section class="type-bar-container">
                     <i class="far fa-smile-wink"></i>
-                    <input type="text" class="type-bar" placeholder="Scrivi un messaggio">
+                    <input type="text" class="type-bar" v-model="newMessage" @keyup.enter="sendNewMessage" placeholder="Scrivi un messaggio">
                     <i class="fas fa-microphone"></i>
                 </section>
             </div>

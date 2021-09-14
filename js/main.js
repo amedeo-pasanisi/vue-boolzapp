@@ -90,13 +90,23 @@ const app = new Vue (
                     ],
                 },
             ],
-            indexActiveContact: 0
+            indexActiveContact: 0,
+            newMessage: ''
         },
-
         methods: {
             setActiveContactIndex(index) {
                 this.indexActiveContact = index;
                 console.log(this.indexActiveContact);
+            },
+            sendNewMessage() {
+                let activeContact = this.contacts[this.indexActiveContact];
+                if (this.newMessage!= "")
+                activeContact.messages.push({
+                    date: '10/01/2020 15:50:00',
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = "";
             },
         }
     }
